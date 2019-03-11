@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+</head>
+<body>
+    <div id='app'>
+        <!-- v-if 每次切换都会删除元素或者创建元素  切换开销-->
+        <!-- v-show 切换 元素 display：none 样式  渲染开销-->
+        <input type="button" value="toggle" @click="toggle">
+        <p v-if="flag">这里使用v-if</p>
+        <p v-show="flag">这里使用v-show</p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                flag:true
+            },
+            methods:{
+                toggle(){
+                    this.flag = !this.flag
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+    <style>
+        [v-clock]{
+            display: none
+        } 
+    </style>
+</head>
+<body>
+    <div id="app" >
+        <p v-cloak>{{ msg }}</p>
+        <p v-text="msg"></p>
+        <p v-html="msg1"></p>
+        <input type="button" value="按钮" v-bind:title="mytitle + '123'" v-on:click="show">
+        <!-- v-bind 属性绑定 v-on 事件绑定 -->
+        <!-- v-bind 简写是 : v-on简写是 @ -->
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: "hello world!",
+                msg1:"<h1>Hello World</h1>",
+                mytitle: "this is my title"
+            },
+            // methods 有个s
+            methods:{
+                show:function(){
+                    alert('Hello World')
+                }
+            }
+        })
+    </script>
+</body>
+</html>
